@@ -45,6 +45,9 @@ class MyCustomFormState extends State<MyCustomForm> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
+          SizedBox(height: 100,),
+          // TextFormField wraps a TextField and integrates it with the enclosing Form. This provides additional functionality,
+          // such as validation and integration with other FormField widgets.
           TextFormField(
             validator: (value) {
               if (value.isEmpty) {
@@ -52,6 +55,22 @@ class MyCustomFormState extends State<MyCustomForm> {
               }
               return null;
             },
+            decoration: InputDecoration(
+              labelText: 'Enter your username',
+              contentPadding: EdgeInsets.symmetric(horizontal: 20),
+              fillColor: Colors.amber,
+              floatingLabelBehavior: FloatingLabelBehavior.never, // always // auto
+              // border: InputBorder.none,
+              errorBorder:OutlineInputBorder(borderSide: BorderSide(width: 1,color: Colors.redAccent)),
+              focusedBorder:OutlineInputBorder(borderSide: BorderSide(width: 1,color: Colors.green)),
+              enabledBorder :OutlineInputBorder(borderSide: BorderSide(width: 1,color: Colors.yellow)),
+              prefixIcon: Icon(Icons.text_rotate_up),
+              suffixIcon: Icon(Icons.text_rotate_vertical),
+              filled: true,
+              // hoverColor: Colors.lightBlue,
+              errorStyle: TextStyle(color: Colors.orange),
+              // isDense: true
+            ),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 16.0),
